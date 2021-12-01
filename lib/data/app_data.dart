@@ -7,9 +7,11 @@ class AppData {
   late Map<String, dynamic> _strings;
   late AssetPath path;
 
-  String get mapPath {
-    return '${path.lottie}/construction-${isDarkTheme ? 'dark' : 'light'}.json';
-  }
+  String get mapPath =>
+      '${path.lottie}/map-${isDarkTheme ? 'dark' : 'light'}.json';
+
+  String get constructionPath =>
+      '${path.lottie}/construction-${isDarkTheme ? 'dark' : 'light'}.json';
 
   init() async {
     path = AssetPath(

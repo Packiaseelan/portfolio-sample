@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.of(context),
           darkTheme: AppTheme.dark(context),
           themeMode: mode,
-          home: const LandingScreen(),
+          onGenerateRoute: Routes.generateRoute,
+          initialRoute: Routes.initial,
         );
       },
     );

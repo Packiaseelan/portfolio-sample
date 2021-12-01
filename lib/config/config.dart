@@ -1,4 +1,5 @@
 export 'app_theme.dart';
+export 'routes.dart';
 export '../data/app_data.dart';
 export '../service/launcher_service.dart';
 export '../utils/enumerations.dart';

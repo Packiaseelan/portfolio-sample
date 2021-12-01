@@ -16,12 +16,6 @@ class LandingScreen extends StatefulWidget {
 class _LandingScreenState extends State<LandingScreen> {
   final _pageController = PageController(initialPage: 0);
   Menu selectedMenu = Menu.home;
-
-  @override
-  void initState() {
-    super.initState();
-    data.init();
-  }
   
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:clay_containers/widgets/clay_text.dart';
 import 'package:flutter/material.dart';
-import 'package:sample/config/app_theme.dart';
+import 'package:sample/config/config.dart';
 import 'package:sample/ui/widgets/content.dart';
 
 class HomeView extends StatelessWidget {
@@ -8,25 +8,26 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var home = data.getStrings('home');
     return ContentWidget(
       children: [
         Text(
-          'HELLO EVERYBODY, I AM',
+          home['greeting'],
           style: Theme.of(context).textTheme.bodyText1,
         ),
         const SizedBox(height: 10),
         Text(
-          'PACKIASEELAN S',
+          home['name'],
           style: Theme.of(context).textTheme.headline5,
         ),
         const SizedBox(height: 10),
         Text(
-          'Flutter Developer',
+          home['role'],
           style: Theme.of(context).textTheme.bodyText1,
         ),
         const Spacer(),
         ClayText(
-          'BE BRAVE ENOUGH\nTO STUCK AT\nSOMETHING NEW.',
+          home['greeting_text'],
           style: Theme.of(context).textTheme.headline5!.copyWith(
                 letterSpacing: 1.4,
                 fontWeight: FontWeight.w900,
@@ -35,7 +36,7 @@ class HomeView extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          'A mobile application developer with 5+ years of experience in Software Deelopment, Applicaton Maintenance, Support and Project Execution in Android and iOS using Flutter and Xamarin.',
+          home['summary'],
           style: Theme.of(context).textTheme.bodyText2!.copyWith(height: 1.5),
           textAlign: TextAlign.justify,
         ),
