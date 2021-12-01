@@ -16,14 +16,23 @@ class SocialMedia extends StatelessWidget {
       children: [
         Text(social.description),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: social.details
-              .map((detail) => CircleButtonWidget(
-                    iconPath: _getIconPath(detail.name),
-                    onPressed: () => _onPressed(detail),
-                  ))
-              .toList(),
+        SizedBox(
+          width: double.infinity,
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
+            spacing: 50,
+            direction: Axis.horizontal,
+            children: social.details
+                .map((detail) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: CircleButtonWidget(
+                        iconPath: _getIconPath(detail.name),
+                        onPressed: () => _onPressed(detail),
+                      ),
+                    ))
+                .toList(),
+          ),
         )
       ],
     );
@@ -31,6 +40,8 @@ class SocialMedia extends StatelessWidget {
 
   String _getIconPath(String name) {
     switch (name.toSocial()) {
+      case Social.github:
+        return 'assets/icons/github.svg';
       case Social.linkedin:
         return 'assets/icons/linkedin.svg';
       case Social.twitter:

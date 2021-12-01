@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 enum Menu { home, about, skills, experience, contact }
 enum Contacts { phone, whatsapp, skype, email }
-enum Social { linkedin, twitter, facebook, instagram }
+enum Social { github, linkedin, twitter, facebook, instagram }
 
 extension MenuEx on Menu {
   String get title => describeEnum(this).toUpperCase();
