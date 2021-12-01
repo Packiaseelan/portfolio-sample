@@ -1,14 +1,27 @@
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:sample/config/config.dart';
+import 'package:sample/models/aasset_path.dart';
 
 class AppData {
   late Map<String, dynamic> _strings;
+  late AssetPath path;
 
-  init() async {
-    _strings = await _parseJsonFromAssets('assets/data/temp.json');
+  String get mapPath {
+    return '${path.lottie}/construction-${isDarkTheme ? 'dark' : 'light'}.json';
   }
 
-  Map<String, dynamic> getStrings(String name){
+  init() async {
+    path = AssetPath(
+      data: 'assets/data/temp.json',
+      icon: 'assets/icons',
+      lottie: 'assets/lottie',
+    );
+
+    _strings = await _parseJsonFromAssets(path.data);
+  }
+
+  Map<String, dynamic> getStrings(String name) {
     return _strings[name];
   }
 

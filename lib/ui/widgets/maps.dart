@@ -2,16 +2,13 @@ import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sample/config/config.dart';
-import 'package:sample/data/temp_data.dart';
 
 class MapsWidget extends StatelessWidget {
   const MapsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return LottieFrame(
-      path: isDarkTheme ? mapPathDark : mapPathLight,
-    );
+    return LottieFrame(path: data.mapPath);
   }
 }
 
