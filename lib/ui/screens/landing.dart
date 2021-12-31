@@ -16,33 +16,42 @@ class LandingScreen extends StatefulWidget {
 class _LandingScreenState extends State<LandingScreen> {
   final _pageController = PageController(initialPage: 0);
   Menu selectedMenu = Menu.home;
-  
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    data.init().then((vaue) => setState(() => isLoading = false));
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = getSize(context);
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Center(
-          child: ClayContainer(
-            width: size.width,
-            height: size.height,
-            emboss: true,
-            color: Theme.of(context).colorScheme.background,
-            borderRadius: 10,
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Header(selectedMenu.title),
-                  ContentView(child: pageView()),
-                  const Footer(),
-                ],
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: const EdgeInsets.all(15),
+              child: Center(
+                child: ClayContainer(
+                  width: size.width,
+                  height: size.height,
+                  emboss: true,
+                  color: Theme.of(context).colorScheme.background,
+                  borderRadius: 10,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Header(selectedMenu.title),
+                        ContentView(child: pageView()),
+                        const Footer(),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      ),
     );
   }
 
@@ -52,7 +61,8 @@ class _LandingScreenState extends State<LandingScreen> {
             child: PageView(
               physics: const ClampingScrollPhysics(),
               controller: _pageController,
-              onPageChanged: (index) => setState(() => selectedMenu = Menu.values[index]),
+              onPageChanged: (index) =>
+                  setState(() => selectedMenu = Menu.values[index]),
               children: const [
                 HomeView(),
                 AboutView(),

@@ -4,7 +4,7 @@ import 'package:sample/config/config.dart';
 import 'package:sample/models/aasset_path.dart';
 
 class AppData {
-  late Map<String, dynamic> _strings;
+  late Map<String, dynamic> _strings = {'':''};
   late AssetPath path;
 
   String get mapPath =>
@@ -13,7 +13,7 @@ class AppData {
   String get constructionPath =>
       '${path.lottie}/construction-${isDarkTheme ? 'dark' : 'light'}.json';
 
-  init() async {
+  Future<void> init() async {
     path = AssetPath(
       data: 'assets/data/temp.json',
       icon: 'assets/icons',
