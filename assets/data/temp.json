@@ -20,10 +20,14 @@
         "chip": [
             "Flutter",
             "Dart",
+            "Firebase",
             "Xamarin",
             "SwiftUI",
             "Andriod",
-            "iOS"
+            "iOS",
+            ".NET",
+            "Git",
+            "Agile"
         ],
         "chart": [
             {
