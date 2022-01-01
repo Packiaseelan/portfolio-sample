@@ -1,5 +1,4 @@
-import 'dart:html' as html;
-
+import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 import 'package:sample/models/contact_detail.dart';
 import 'package:sample/ui/widgets/circle_button.dart';

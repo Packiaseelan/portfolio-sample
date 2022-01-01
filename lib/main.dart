@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample/config/app_theme.dart';
 import 'package:sample/config/config.dart';
-import 'package:sample/ui/screens/screens.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
